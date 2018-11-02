@@ -10,7 +10,7 @@ jobs:
       steps:
       - script: echo runAsPublic is true
 
-  - ${{ if eq(parameters.runAsPublic, true ) }}:
+  - ${{ if ne(parameters.runAsPublic, true ) }}:
     - job: testWindows
       displayName: Hosted VS2017
       pool:
