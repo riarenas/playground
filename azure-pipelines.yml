@@ -1,23 +1,4 @@
-resources:
-  containers:
-  - container: alpine
-    image: microsoft/dotnet-buildtools-prereqs:alpine-3.6-3148f11-20171119021156
-  - container: LinuxContainer
-    image: microsoft/dotnet-buildtools-prereqs:ubuntu-14.04-cross-0cd4667-20170319080304
-    
-    
 jobs:
-- job: testalpine
-  displayName: Alpine container job
-  pool:
-    name: Hosted Ubuntu 1604
-  container: alpine
-  steps:
-    - script: printenv
-- job: testubuntu
-  displayName: Ubuntu container job
-  pool:
-    name: Hosted Ubuntu 1604
-  container: LinuxContainer
-  steps:
-    - script: printenv
+- template: /mytemplate.yml
+  parameters:
+    runAsPublic: true

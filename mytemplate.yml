@@ -1,0 +1,19 @@
+parameters:
+  runAsPublic: false
+
+jobs:
+  - ${{ if eq(parameters.runAsPublic, true ) }}:
+    - job: testWindows
+      displayName: Hosted VS2017
+      pool:
+        name: Hosted VS2017
+      steps:
+      - script: echo runAsPublic is true
+
+  - ${{ if eq(parameters.runAsPublic, true ) }}:
+    - job: testWindows
+      displayName: Hosted VS2017
+      pool:
+        name: Hosted VS2017
+      steps:
+      - script: echo runAsPublic is false
