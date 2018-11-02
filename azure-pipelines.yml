@@ -1,3 +1,4 @@
 jobs:
 - template: /mytemplate.yml
   parameters:
+    foo: hello
