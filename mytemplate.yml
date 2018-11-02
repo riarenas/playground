@@ -1,7 +1,7 @@
 parameters:
-  ${{ if and(ne(variables['System.TeamProject'], 'public'), notIn(variables['Build.Reason'], 'PullRequest'))) }}:
+  ${{ if ne(variables['System.TeamProject'], 'public') }}:
     runAsPublic: false
-  ${{ if or(eq(variables['System.TeamProject'], 'public'), in(variables['Build.Reason'], 'PullRequest'))) }}:
+  ${{ if eq(variables['System.TeamProject'], 'public') }}:
     runAsPublic: true
   foo: true
 
