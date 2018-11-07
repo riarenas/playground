@@ -1,4 +1,7 @@
+variables:
+- group: chcosta
+
 jobs:
-- template: /mytemplate.yml
-  parameters:
-    foo: hello
+- job: job1
+  steps:
+  - script: echo testing $(BotAccount-dotnet-github-anon-kaonashi-bot-helix-token)
