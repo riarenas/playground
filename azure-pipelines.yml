@@ -1,4 +1,18 @@
+resources:
+  containers:
+  - container: FreeBsdContainer
+    image: amontalban/freebsd
+  - container: AlpineContainer
+    image: microsoft/dotnet-buildtools-prereqs:alpine-3.6-3148f11-20171119021156
 jobs:
-- template: mytemplate.yml
-  parameters:
-    jobName: chcosta
+- job: freebsd
+  pool: Hosted Ubuntu 1604
+  container: FreeBsdContainer
+  steps:
+  - script: echo working
+
+- job: alpine
+  pool: Hosted Ubuntu 1604
+  container: AlpineContainer
+  steps:
+  - script: echo working
