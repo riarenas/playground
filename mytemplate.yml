@@ -1,23 +1,15 @@
 parameters:
-  ${{ if ne(variables['System.TeamProject'], 'public') }}:
-    runAsPublic: false
-  ${{ if eq(variables['System.TeamProject'], 'public') }}:
-    runAsPublic: true
-  foo: true
+ jobName: ''
 
 jobs:
-  - ${{ if eq(parameters.runAsPublic, true ) }}:
-    - job: testWindows
-      displayName: Hosted VS2017
-      pool:
-        name: Hosted VS2017
-      steps:
-      - script: echo runAsPublic is true
-
-  - ${{ if ne(parameters.runAsPublic, true ) }}:
-    - job: testWindows
-      displayName: Hosted VS2017
-      pool:
-        name: Hosted VS2017
-      steps:
-      - script: echo runAsPublic is false
+- job: testWindows
+  displayName: Hosted VS2017
+  variables:
+    _name: ${{ parameters['jobName'] }}
+  pool:
+    name: Hosted VS2017
+  steps:
+  - script: echo parameter name - %paramName%, variable name - %varName%
+    env:
+      paramName: ${{ parameters['jobName'] }}
+      varName: $(_name)

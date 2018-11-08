@@ -3,7 +3,6 @@ variables:
 - name: foo
   value: bar
 jobs:
-- job: job1
-  steps:
-  - script: echo testing $(dotnetfeed-storage-access-key-1)
-  - script: echo $(foo)
+- template: mytemplate.yml
+  parameters:
+    jobName: chcosta
