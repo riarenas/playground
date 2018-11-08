@@ -1,7 +1,3 @@
-variables:
-- group: DotNet-Blob-Feed
-- name: foo
-  value: bar
 jobs:
 - template: mytemplate.yml
   parameters:
