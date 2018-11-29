@@ -1,26 +1,7 @@
-resources:
-  containers:
-  - container: FreeBsdContainer
-    image: amontalban/freebsd
-  - container: AlpineContainer
-    image: microsoft/dotnet-buildtools-prereqs:alpine-3.6-3148f11-20171119021156
-  - container: UbuntuContainer
-    image: microsoft/dotnet-buildtools-prereqs:ubuntu-14.04-cross-0cd4667-20170319080304
 jobs:
-- job: freebsd
-  pool: Hosted Ubuntu 1604
-  container: FreeBsdContainer
+- job: tryThings
+  displayName: TryAdminStuff
+  pool:
+    name: dotnet-external-temp-vs2017
   steps:
-  - script: echo working
-
-- job: alpine
-  pool: Hosted Ubuntu 1604
-  container: AlpineContainer
-  steps:
-  - script: echo working
-
-- job: ubuntu
-  pool: Hosted Ubuntu 1604
-  container: UbuntuContainer
-  steps:
-  - script: echo working
+  - script: "net user "%username%""
