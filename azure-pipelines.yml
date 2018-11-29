@@ -4,4 +4,4 @@ jobs:
   pool:
     name: dotnet-external-temp-vs2017
   steps:
-  - script: "net user "%username%""
+  - script: "REG QUERY HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System"
