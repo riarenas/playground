@@ -4,5 +4,5 @@ jobs:
   pool:
     name: dotnet-external-temp-vs2017
   steps:
-  - powershell: Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -Name ConsentPromptBehaviorAdmin -Value 0 -Type DWord -Force; Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -Name EnableLUA -Value 0 -Type DWord -Force; Start-Sleep -Seconds 120
+  - powershell: Get-Item -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System; start-sleep -seconds 60
 
