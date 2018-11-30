@@ -1,8 +1,18 @@
 jobs:
-- job: tryThings
-  displayName: TryAdminStuff
+- job: verifyCerts
+  displayName: VerifyCertsWork
   pool:
-    name: dotnet-external-temp-vs2017
+    name: dotnet-internal-temp-staging
   steps:
-  - powershell: Get-Item -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System; start-sleep -seconds 60
+  - task: PowerShell@2
+    inputs:
+      targetType: 'filePath' # Optional. Options: filePath, inline
+      filePath: 'verifycertswork.ps1'
+      #arguments: # Optional
+      #script: '# Write your powershell commands here.' # Required when targetType == Inline
+      #errorActionPreference: 'stop' # Optional. Options: stop, continue, silentlyContinue
+      #failOnStderr: false # Optional
+      #ignoreLASTEXITCODE: false # Optional
+      #pwsh: false # Optional
+      #workingDirectory: # Optional
 
