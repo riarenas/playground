@@ -4,5 +4,5 @@ jobs:
   pool:
     name: dnceng-linux-external-temp
   steps:
-  - bash: pwd && df -h .
+  - bash: docker info
 
