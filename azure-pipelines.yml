@@ -1,8 +1,8 @@
 jobs:
-- job: verifyCerts
-  displayName: VerifyCertsWork
+- job: getVSversion
+  displayName: VSWhere
   pool:
-    name: dnceng-linux-external-temp
+    name: dotnet-external-temp-staging
   steps:
-  - bash: pwd && df -h .
+  - powershell: C:\"Program Files (x86)"\"Microsoft Visual Studio"\Installer\vswhere -prerelease
 
