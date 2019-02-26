@@ -1,8 +1,8 @@
 jobs:
 - job: getVSversion
-  displayName: VSWhere
+  displayName: swapon
   pool:
-    name: dotnet-external-temp-staging
+    name: dnceng-linux-external-temp
   steps:
-  - powershell: C:\"Program Files (x86)"\"Microsoft Visual Studio"\Installer\vswhere -prerelease
+  - bash: "sudo swapon --show && df -h && free -g && free -g |awk '/^Mem:/{print $2}'" 
 
